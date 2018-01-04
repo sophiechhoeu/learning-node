@@ -15,6 +15,64 @@
 () => {
 
 }
+### Synchronous Loading & Requests
+- Loading
+When the browser must halt the rendering of the page in order to complete the execution of Javascript code. When the browser encounters a synchronous JavaScript tag, it blocks the page from rendering until the code execution completes.
+
+- Requests
+Synchronous XHR is now in deprecation state.
+
+**example**
+
+```javascript
+
+var request = new XMLHttpRequest();
+request.open('GET', '/bar/foo.txt', false);  // `false` makes the request synchronous
+request.send(null);
+
+if (request.status === 200) {
+  console.log(request.responseText);
+}
+```
+
+* request.send : sends the request
+* null : parameter indicates that no body content is need for the GET request
+* if function : checks the status code after the transaction is completed. If the result is 200 - http's OK result then the document text content is outputted to the console.
+
+
+### Asynchronous Loading & requests
+- Loading
+In this method Javascript code is processed in parallel to the rest of the page content. This means that even if a tag is slow to respond or load it does not slow down the rest of the page.
+
+- Requests
+If you use an asynchronous XMLHttpRequest, you receive a callback when the data has been received. This lets the browser continue to work as normal while your request is being handled.
+
+
+**Example**
+Sending a file to the console log
+```javascript
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "/bar/foo.txt", true);
+xhr.onload = function (e) {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+xhr.send(null);
+```
+
+- true parameter: indicates the request should be handled asynchronously
+- onload attribute: creates an event handler function object which looks at readyState to see if the transaction is completed if it is and the status returns 200 then it will display received content if an error occurs the error message is displayed.
+- send: initiates the request
+
 
 
 * Web Frameworks
