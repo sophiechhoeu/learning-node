@@ -11,6 +11,11 @@
 
 - works well with json - comes naturally to Javascript ideal for both on the front end and the back end
 
+- callback function format:
+() => {
+  
+}
+
 
 * Web Frameworks
  the supporting structure that allows you to build on top of it:
@@ -64,3 +69,23 @@ benefits: validation
 ```sh
 $ npm install -s mongoose
 ```
+
+### Testing
+
+- Jasmine
+
+unit test: a test that only checks a signle thing
+
+**installation**
+
+```sh
+$ npm install --save-dev jasmine
+```
+
+accessing the module
+```sh
+$ ./node_modules/.bin/jasmine init
+
+```
+
+*make sure you are in the spec folder to run jasmine tests*
