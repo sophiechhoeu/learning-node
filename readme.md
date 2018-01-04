@@ -13,7 +13,7 @@
 
 - callback function format:
 () => {
-  
+
 }
 
 
@@ -89,3 +89,12 @@ $ ./node_modules/.bin/jasmine init
 ```
 
 *make sure you are in the spec folder to run jasmine tests*
+
+then
+
+*testing server requests are correct with Jasmine*
+
+```sh
+$ npn install --save-dev request
+
+```
